@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reverse Emoji Rating Slider</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .rating-container {
+        width: 700px;
+        text-align: center;
+    }
+
+    .emoji-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .emoji-box {
+        text-align: center;
+        width: 20%;
+    }
+
+    .emoji {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+        margin: 0 auto 6px;
+        color: #000;
+    }
+
+    .excellent { background: #2ecc71; }
+    .good { background: #f1c40f; }
+    .average { background: #f39c12; }
+    .poor { background: #e67e22; }
+    .worst { background: #e74c3c; }
+
+    .label {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .slider-wrapper {
+        position: relative;
+        margin-top: 10px;
+    }
+
+    input[type="range"] {
+        width: 100%;
+        appearance: none;
+        height: 6px;
+        border-radius: 4px;
+        background: linear-gradient(
+            to right,
+            #2ecc71,
+            #f1c40f,
+            #f39c12,
+            #e67e22,
+            #e74c3c
+        );
+        outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #ccc;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="rating-container">
+
+    <div class="emoji-row">
+        <div class="emoji-box">
+            <div class="emoji excellent">😄</div>
+            <div class="label">Excellent</div>
+        </div>
+
+        <div class="emoji-box">
+            <div class="emoji good">🙂</div>
+            <div class="label">Good</div>
+        </div>
+
+        <div class="emoji-box">
+            <div class="emoji average">😐</div>
+            <div class="label">Average</div>
+        </div>
+
+        <div class="emoji-box">
+            <div class="emoji poor">🙁</div>
+            <div class="label">Poor</div>
+        </div>
+
+        <div class="emoji-box">
+            <div class="emoji worst">😠</div>
+            <div class="label">Worst</div>
+        </div>
+    </div>
+
+    <div class="slider-wrapper">
+        <input type="range" min="1" max="5" value="3" id="ratingSlider">
+    </div>
+
+</div>
+
+<script>
+    const slider = document.getElementById("ratingSlider");
+
+    slider.addEventListener("input", () => {
+        // You can capture the selected rating value here if needed
+        console.log("Selected Rating:", slider.value);
+    });
+</script>
+
+</body>
+</html>
